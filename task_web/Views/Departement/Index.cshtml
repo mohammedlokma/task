@@ -1,0 +1,39 @@
+﻿@model IEnumerable<task_web.Models.DTO.DepartementDto>
+<div class="container">
+    <a asp-controller="Departement" asp-action="DepartementCreate" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New Departement</a>
+
+
+    <h2>Departements</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                   
+                    <td>
+                        <a href="javascript:void(0)" onclick="Remove(@item.Id)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    function Remove(id) {
+        $.ajax({
+            url: 'https://localhost:7268/api/Departement/DeleteDepartement?id=' + id,
+            type: 'DELETE',
+            success: function (data) {
+                location.reload();
+            }
+        })
+    }
+</script>

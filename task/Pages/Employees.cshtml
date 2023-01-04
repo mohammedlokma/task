@@ -1,0 +1,36 @@
+﻿@page
+@model task.Pages.EmployeesModel
+@{
+}
+
+<div class="container">
+    <h2>Employees</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Departement</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    // url (required)
+    fetch('URL_OF_YOUR_API', {//options => (optional)
+        method: 'get' //Get / POST / ...
+    }).then(function (response) {
+        //response
+    }).catch(function (err) {
+        // Called if the server returns any errors
+        console.log("Error:" + err);
+    });
+</script>

@@ -1,0 +1,66 @@
+﻿@model task_web.Models.VM.CreateEmployeeVM
+
+<form asp-action="EmployeeCreate">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Create Employee</h1>
+        <hr />
+
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Employee.Name" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Employee.Name" class="form-control" />
+                <span asp-validation-for="Employee.Name" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Employee.Address" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Employee.Address" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Employee.Address" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Employee.PhoneNumber" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Employee.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Employee.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="col-10 pb-3">
+                <select asp-for="Employee.DepartementId" class="form-select" asp-items="@Model.DepartementList">
+                    <option disabled selected>--Select Villa--</option>
+                </select>
+                <span asp-validation-for="Employee.DepartementId" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Employee.username" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+             <div class="col-10 pb-3">
+                <input asp-for="Employee.username" class="form-control" />
+                <span asp-validation-for="Employee.username" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Employee.password" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Employee.password" class="form-control" type="password" />
+                <span asp-validation-for="Employee.password" class="text-danger"></span>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Create" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
