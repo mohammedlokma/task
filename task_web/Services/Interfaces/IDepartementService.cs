@@ -7,5 +7,6 @@ namespace task_web.Services.Interfaces
         Task<T> CreateAsync<T>(DepartementCreateDto dto);
         Task<T> DeleteAsync<T>(int id);
         Task<T> GetAllAsync<T>();
+        Task<T> GetDepartementEmployeesAsync<T>(int id);
     }
 }

@@ -8,6 +8,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>employees</th>
                 <th>Action</th>
                 
             </tr>
@@ -17,7 +18,7 @@
             {
                 <tr>
                     <td>@item.Name</td>
-                   
+                    <td><a class="btn btn-primary" asp-controller="Departement" asp-action="DepartementEmployees" asp-route-departementId="@item.Id">Employees</a></td>
                     <td>
                         <a href="javascript:void(0)" onclick="Remove(@item.Id)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                     </td>

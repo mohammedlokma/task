@@ -39,8 +39,17 @@ namespace task_web.Services
             return SendAsync<T>(new APIRequest()
             {
                 ApiType = SD.ApiType.DELETE,
-                Url = employeeUrl + "/api/Departement/DeleteDepartement?id=/" + id,
+                Url = employeeUrl + "/api/Departement/DeleteDepartement?id=" + id,
             });
+        }
+        public Task<T> GetDepartementEmployeesAsync<T>(int id)
+        {
+            return SendAsync<T>(new APIRequest()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = employeeUrl + "/api/Departement/GetDepartementEmployees?id=" + id,
+            });
+
         }
     }
 }

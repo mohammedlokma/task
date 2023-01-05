@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using task.Services;
 using task_web.Models.DTO;
 using task_web.Models.VM;
+using task_web.Services;
 using task_web.Services.Interfaces;
 
 namespace task_web.Controllers
@@ -71,5 +72,17 @@ namespace task_web.Controllers
             // return RedirectToAction(nameof(Index));
             
         }
+        public async Task<IActionResult> DepartementEmployees(int departementId)
+        {
+            List<EmployeeDto> list = new();
+
+            var response = await _departementService.GetDepartementEmployeesAsync<APIResponse>(departementId);
+            if (response != null && response.IsSuccess)
+            {
+                list = JsonConvert.DeserializeObject<List<EmployeeDto>>(Convert.ToString(response.Result));
+            }
+            return View(list);
+        }
+        
     }
 }

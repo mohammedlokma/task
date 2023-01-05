@@ -47,7 +47,7 @@ namespace task_api.Controllers
             return _response;
 
         }
-        [HttpGet("{id:int}", Name = "GetDepartementEmployees")]
+        [HttpGet("GetDepartementEmployees")]
         //[ResponseCache(CacheProfileName = "Default30")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -60,7 +60,7 @@ namespace task_api.Controllers
                 IEnumerable<EmployeeDTO> employessDto = _mapper.Map<List<EmployeeDTO>>(employees);
                 _response.Result = employessDto;
                 _response.StatusCode = HttpStatusCode.OK;
-                return Ok(_response.Result);
+                return Ok(_response);
             }
             catch (Exception ex)
             {
@@ -139,5 +139,6 @@ namespace task_api.Controllers
             }
             return _response;
         }
+        
     }
 }

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<task_web.Models.DTO.EmployeeDto>
+<div class="container">
+    <h2>Employees</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Departement</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Address</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.DepartementId</td>
+                    <td>
+                        <a asp-controller="Employee" asp-action="EmployeeUpdate" asp-route-employeeId="@item.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                        <a href="javascript:void(0)" onclick="Remove(@item.Id)" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
